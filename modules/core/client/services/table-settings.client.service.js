@@ -25,7 +25,7 @@
         counts: [5, 10, 15],
         filterDelay: 0,
       };
-
+      /* jshint ignore:start */
       var tableParams = new ngTableParams(params, settings);
 
       var getParams = function(Entity) {
@@ -38,6 +38,7 @@
       };
 
       return service;
+      /* jshint ignore:end */
 
   }]);
 

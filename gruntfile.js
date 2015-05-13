@@ -63,13 +63,28 @@ module.exports = function (grunt) {
 					livereload: true
 				}
 			},
+			mainSCSS: {
+				files: ['config/scss/bootstrap.scss'],
+				tasks: ['sass','csslint'],
+				options: {
+					livereload: true
+				}
+			},
 			clientLESS: {
 				files: defaultAssets.client.less,
 				tasks: ['less', 'csslint'],
 				options: {
 					livereload: true
 				}
+			},
+			materialLESS: {
+				files: ['config/less/material.less'],
+				tasks: ['less', 'csslint'],
+				options: {
+					livereload: true
+				}
 			}
+
 		},
 		nodemon: {
 			dev: {
@@ -127,7 +142,10 @@ module.exports = function (grunt) {
 		cssmin: {
 			combine: {
 				files: {
-					'public/dist/application.min.css': defaultAssets.client.css
+					'public/dist/application.min.css': defaultAssets.client.css,
+					//'public/dist/bootstrap.min.css': 'public/dist/bootstrap.css',
+					'public/lib/bootstrap-sass/assets/stylesheets/mybootstrap.min.css': 'public/lib/bootstrap-sass/assets/stylesheets/mybootstrap.css',
+					'public/dist/material.min.css': 'public/dist/material.css'
 				}
 			}
 		},
@@ -141,7 +159,19 @@ module.exports = function (grunt) {
 						return  src.replace('/scss/', '/css/');
 					}
 				}]
+			},
+			bootstrapdist: {
+				files: [{
+					expand: true,
+					src: ['config/scss/bootstrap.scss'],
+					ext: '.css',
+					rename: function(base, src) {
+						//return  'public/dist/bootstrap.css';
+						return  'public/lib/bootstrap-sass/assets/stylesheets/mybootstrap.css';
+					}
+				}]
 			}
+
 		},
 		less: {
 			dist: {
@@ -153,7 +183,18 @@ module.exports = function (grunt) {
 						return  src.replace('/less/', '/css/');
 					}
 				}]
+			},
+			materialdist: {
+				files: [{
+					expand: true,
+					src: ['config/less/material.less'],
+					ext: '.css',
+					rename: function(base, src) {
+						return  'public/dist/material.css';
+					}
+				}]
 			}
+
 		},
 		'node-inspector': {
 			custom: {
@@ -163,7 +204,7 @@ module.exports = function (grunt) {
 					'debug-port': 5858,
 					'save-live-edit': true,
 					'no-preload': true,
-					'stack-trace-limit': 50,
+					'stack-trace-limit' : 50,
 					'hidden': []
 				}
 			}

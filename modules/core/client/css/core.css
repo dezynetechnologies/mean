@@ -82,7 +82,7 @@ a:hover .header-profile-image {
 }
 
 .ng-table th.filter .input-filter {
-    margin: 12px;
+    margin: 0px;
     width: 90%;
 }
 

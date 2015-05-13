@@ -4,10 +4,12 @@ module.exports = {
     client: {
         lib: {
             css: [
-                'public/lib/bootstrap/dist/css/bootstrap.css',
+                //'public/dist/bootstrap.css',
+                'public/lib/bootstrap-sass/assets/stylesheets/mybootstrap.css',
                 //'public/lib/bootstrap/dist/css/bootstrap-theme.css',
                 'public/lib/bootstrap-material-design/dist/css/roboto.min.css',
                 'public/lib/bootstrap-material-design/dist/css/material.min.css',
+                //'public/dist/material.css',
                 'public/lib/bootstrap-material-design/dist/css/ripples.min.css',
                 'public/lib/ng-table/ng-table.min.css'
             ],
