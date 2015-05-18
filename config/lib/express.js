@@ -18,7 +18,9 @@ var config = require('../config'),
 	passport = require('passport'),
 	flash = require('connect-flash'),
 	consolidate = require('consolidate'),
-	path = require('path');
+	path = require('path'),
+	expressJWT = require('express-jwt'),
+	jwt = require('jsonwebtoken');
 
 /**
  * Initialize local variables
